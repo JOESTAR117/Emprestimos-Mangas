@@ -31,8 +31,11 @@
                         <td>@emprestimo.Receiver</td>
                         <td>@emprestimo.Provider</td>
                         <td>@emprestimo.Manga</td>
-                        <td>@emprestimo.LastUpdateDate</td>
-                        <td></td>
+                        <td>@emprestimo.LastUpdateDate.ToString()</td>
+                        <td class="d-flex justify-content-evenly">
+                            <a class="btn btn-warning" asp-controller="Emprestimo" asp-action="Editar" asp-route-id="@emprestimo.Id">Editar</a>
+                            <a class="btn btn-danger" asp-controller="Emprestimo" asp-action="Deletar" asp-route-id="@emprestimo.Id">Excluir</a>
+                        </td>
                     </tr>
                 }
         </tbody>

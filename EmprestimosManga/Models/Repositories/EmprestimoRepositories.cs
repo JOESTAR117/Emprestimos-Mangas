@@ -17,9 +17,29 @@ namespace EmprestimosManga.Models.Repositories
             _context.SaveChanges();
         }
 
+        public void Delete(EmprestimosModel emprestimos)
+        {
+           if (_context.Emprestimos != null)
+            {
+                _context.Remove(emprestimos);
+                _context.SaveChanges();
+            }
+        }
+
         public List<EmprestimosModel> GetAll()
         {
             return _context.Emprestimos.ToList();
+        }
+
+        public EmprestimosModel? getById(int id)
+        {
+            return _context.Emprestimos.Find(id);
+        }
+
+        public void Update(EmprestimosModel emprestimos)
+        {
+            _context.Update(emprestimos);
+            _context.SaveChanges();
         }
     }
 }

@@ -1,0 +1,41 @@
+﻿@model EmprestimosModel;
+
+@{
+    ViewData["title"] = "Excluir emprestimos";
+}
+
+
+<div class="container bg-dark p-5 rounded-5">
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Excluir empréstimos</h1>
+    </div>
+
+
+    <form method="post" asp-controller="Emprestimo" asp-action="Deletar">
+        <input type="hidden" asp-for="Id" />
+
+        <h2 class="text-light">Tem certeza que deseja excluir o registro abaixo?</h2>
+
+        <div class="form-group mb-3 text-light">
+            <label asp-for="Receiver" class="control-label">Recebedor</label>
+            <input asp-for="Receiver" class="form-control" disabled>
+        </div>
+
+        <div class="form-group mb-3 text-light">
+            <label asp-for="Provider" class="control-label">Fornecedor</label>
+            <input asp-for="Provider" class="form-control" disabled />
+
+        </div>
+
+        <div class="form-group mb-3 text-light">
+            <label asp-for="Manga" class="control-label">Manga</label>
+            <input asp-for="Manga" class="form-control" disabled />
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50" onclick="return confirm('Ultima chance, essa ação não tem volta!!')">Excluir</button>
+            <a class="btn btn-primary w-50" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+</div>
+

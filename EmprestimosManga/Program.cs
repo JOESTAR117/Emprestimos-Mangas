@@ -34,4 +34,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+DateTime dataHora = DateTime.Now;
+Console.WriteLine(dataHora);
+
 app.Run();
