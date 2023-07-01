@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EmprestimosModel>
+
+@{
+    ViewData["Title"] = "Emprestimos Mangas";
+}
+
+
+<table class="table table-dark table-hover mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Recebedor</th>
+            <th scope="col">Fornecedor</th>
+            <th scope="col">Manga</th>
+            <th scope="col">Última atualização</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null)
+            @foreach (var emprestimo in Model)
+            {
+                <tr>
+                    <td>@emprestimo.Receiver</td>
+                    <td>@emprestimo.Provider</td>
+                    <td>@emprestimo.Manga</td>
+                    <td>@emprestimo.LastUpdateDate</td>
+                    <td></td>
+                </tr>
+            }
+
+    </tbody>
+</table>
