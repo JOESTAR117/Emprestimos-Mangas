@@ -9,5 +9,6 @@ namespace EmprestimosManga.Data
         { }
 
         public DbSet<EmprestimosModel> Emprestimos { get; set; }
+
     }
 }

@@ -1,0 +1,43 @@
+﻿@model EmprestimosModel
+@{
+    ViewData["title"] = "Cadastrar Empréstimo";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Cadastro de empréstimos</h1>
+    </div>
+
+
+    <form method="post" asp-controller="Emprestimo" asp-action="Cadastrar">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group mb-3 text-light">
+            <label asp-for="Receiver" class="control-label">Recebedor</label>
+            <input asp-for="Receiver" class="form-control" placeholder="Quem está recebendo o manga?" />
+            <span asp-validation-for="Receiver" class="text-danger">O campo Recebedor é obrigatório</span>
+        </div>
+
+        <div class="form-group mb-3 text-light">
+            <label asp-for="Provider" class="control-label">Fornecedor</label>
+            <input asp-for="Provider" class="form-control" placeholder="Quem está emprestando o manga?" />
+            <span asp-validation-for="Provider" class="text-danger">O campo Fornecedor é obrigatório</span>
+
+        </div>
+
+        <div class="form-group mb-3 text-light">
+            <label asp-for="Manga" class="control-label">Manga</label>
+            <input asp-for="Manga" class="form-control" placeholder="Qual o nome do Manga?" />
+            <span asp-validation-for="Manga" class="text-danger">O campo Manga é obrigatório</span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-success w-50">Adicionar</button>
+            <a class="btn btn-primary w-50" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

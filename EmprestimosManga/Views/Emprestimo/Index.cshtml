@@ -1,32 +1,40 @@
-﻿@model IEnumerable<EmprestimosModel>
+﻿@model List<EmprestimosModel>
 
 @{
     ViewData["Title"] = "Emprestimos Mangas";
 }
 
 
-<table class="table table-dark table-hover mt-5">
-    <thead>
-        <tr>
-            <th scope="col">Recebedor</th>
-            <th scope="col">Fornecedor</th>
-            <th scope="col">Manga</th>
-            <th scope="col">Última atualização</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @if(Model != null)
-            @foreach (var emprestimo in Model)
-            {
-                <tr>
-                    <td>@emprestimo.Receiver</td>
-                    <td>@emprestimo.Provider</td>
-                    <td>@emprestimo.Manga</td>
-                    <td>@emprestimo.LastUpdateDate</td>
-                    <td></td>
-                </tr>
-            }
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Empréstimos</h1>
+        <a class="btn btn-success mx-2" asp-controller="Emprestimo" asp-action="Cadastrar"> Cadastrar novo empréstimo</a>
+    </div>
 
-    </tbody>
-</table>
+
+
+    <table class="table table-dark table-hover mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Recebedor</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Manga</th>
+                <th scope="col">Última atualização</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+                @foreach (var emprestimo in Model)
+                {
+                    <tr>
+                        <td>@emprestimo.Receiver</td>
+                        <td>@emprestimo.Provider</td>
+                        <td>@emprestimo.Manga</td>
+                        <td>@emprestimo.LastUpdateDate</td>
+                        <td></td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>

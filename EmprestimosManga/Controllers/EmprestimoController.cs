@@ -1,23 +1,42 @@
-﻿using EmprestimosManga.Data;
-using EmprestimosManga.Models;
+﻿using EmprestimosManga.Models;
+using EmprestimosManga.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmprestimosManga.Controllers
 {
     public class EmprestimoController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IEmprestimosRepositories _emprestimosRepositories;
 
-        public EmprestimoController(ApplicationDbContext context)
+        public EmprestimoController(IEmprestimosRepositories emprestimosRepositories)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _emprestimosRepositories = emprestimosRepositories;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            IEnumerable<EmprestimosModel> emprestimos = _context.Emprestimos;
+            var emprestimos = _emprestimosRepositories.GetAll();
 
             return View(emprestimos);
+        }
+
+        [HttpGet]
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Cadastrar(EmprestimosModel emprestimos)
+        {
+            if (ModelState.IsValid)
+            {
+                _emprestimosRepositories.Add(emprestimos);
+
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }

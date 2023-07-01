@@ -1,10 +1,12 @@
 using EmprestimosManga.Data;
+using EmprestimosManga.Models.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IEmprestimosRepositories, EmprestimoRepositories>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

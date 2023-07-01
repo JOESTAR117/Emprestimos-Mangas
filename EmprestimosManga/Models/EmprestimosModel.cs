@@ -9,6 +9,6 @@ namespace EmprestimosManga.Models
         public string Receiver { get; set; }
         public string Provider { get; set; }
         public string Manga { get; set; }
-        public DateTime LastUpdateDate { get; set; } = DateTime.Now;
+        public DateTime LastUpdateDate { get; set; } = DateTime.Now.ToUniversalTime();
     }
 }
