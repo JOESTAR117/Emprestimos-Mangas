@@ -5,7 +5,7 @@
 }
 
 
-<div class="container bg-dark p-5 rounded-5">
+<div class="container bg-dark p-4 rounded-5 ">
     <div class="mb-5 text-center">
         <h1 class="text-light">Excluir empréstimos</h1>
     </div>
@@ -14,7 +14,6 @@
     <form method="post" asp-controller="Emprestimo" asp-action="Deletar">
         <input type="hidden" asp-for="Id" />
 
-        <h2 class="text-light">Tem certeza que deseja excluir o registro abaixo?</h2>
 
         <div class="form-group mb-3 text-light">
             <label asp-for="Receiver" class="control-label">Recebedor</label>
